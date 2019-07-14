@@ -1,0 +1,59 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
+    }
+}
+
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'application'
+
+
+group 'Inheritance_Shape'
+version '1.0-SNAPSHOT'
+
+bootJar {
+    baseName = 'gs-accessing-data-mysql'
+    version =  '0.1.0'
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+mainClassName = "config.ShapeApplication"
+
+dependencies {
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compile("org.springframework.boot:spring-boot-starter-web")
+//    compile ('org.hibernate:hibernate-validator')
+    // JPA Data (We are going to use Repositories, Entities, Hibernate, etc...)
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Use MySQL Connector-J
+    compile 'mysql:mysql-connector-java'
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+
+//    compile "org.springframework:spring-webmvc:4.3.10.RELEASE"
+//    compile "org.springframework:spring-orm:4.3.10.RELEASE"
+//    compile "org.hibernate:hibernate-core:5.2.11.Final"
+//    compile "org.hibernate:hibernate-c3p0:5.2.11.Final"
+//    compile "com.mchange:c3p0:0.9.5.2"
+//    compile "mysql:mysql-connector-java:6.0.5"
+//    compile "com.fasterxml.jackson.core:jackson-databind:2.8.7"
+//    compile "javax.servlet:javax.servlet-api:3.1.0"
+}
+
